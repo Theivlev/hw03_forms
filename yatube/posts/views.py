@@ -97,5 +97,5 @@ def post_edit(request, post_id):
             post.author = request.user
             post.save()
             return redirect('posts:post_detail', post_id)
-    else:  
+    else:
         return render(request, template, context)
