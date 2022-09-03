@@ -6,9 +6,12 @@ from posts.models import Post
 class PostForm(ModelForm):
     class Meta:
         model = Post
-        context = {
+        labels = {
             'group': 'Группа',
             'text': 'Текст',
         }
-
+        help_texts = {
+            'group': 'Описание группы',
+            'text': 'Текст поста'
+        }
         fields = ('text', 'group')
