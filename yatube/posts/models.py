@@ -11,11 +11,12 @@ class Group(models.Model):
     description = models.TextField(verbose_name='Описание')
 
     def __str__(self):
-        return f'Группа {self.title}'
+        return self.title
 
 
 class Post(models.Model):
     OUTPUT_OF_POSTS: int = 10
+    SUMBOLS_MAX: int = 15
 
     text = models.TextField(verbose_name='Текст')
     pub_date = models.DateTimeField(auto_now_add=True,
@@ -36,7 +37,7 @@ class Post(models.Model):
     )
 
     def __str__(self):
-        return self.text
+        return self.text[:Post.SUMBOLS_MAX]
 
     class Meta:
         ordering = ['-pub_date']
